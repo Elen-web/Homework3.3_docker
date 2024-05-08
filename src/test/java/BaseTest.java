@@ -4,6 +4,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterClass;
@@ -13,6 +15,8 @@ import pages.DribbbleSigninPage;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Files;
 
 public class BaseTest {
@@ -20,16 +24,31 @@ public class BaseTest {
     protected DribbbleHomePage homePage;
     protected DribbbleSigninPage signinPage;
 
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        homePage = new DribbbleHomePage(driver);
-        signinPage = new DribbbleSigninPage(driver);
-        driver.get("https://dribbble.com/");
-    }
+//    @Before
+//    public void setUp() {
+//        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        homePage = new DribbbleHomePage(driver);
+//        signinPage = new DribbbleSigninPage(driver);
+//        driver.get("https://dribbble.com/");
+//    }
 
+//    @BeforeClass
+//    public void setUp() throws MalformedURLException {
+//        String gridUrl = "http://selenium-hub:4444/wd/hub";
+//
+//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+//
+//        driver.manage().window().maximize();
+//
+//        homePage = new DribbbleHomePage(driver);
+//        signinPage = new DribbbleSigninPage(driver);
+//
+//        // Navigate to the homepage
+//        driver.get("https://dribbble.com/");
+//    }
 
 
     @AfterClass
